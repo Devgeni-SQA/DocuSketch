@@ -25,6 +25,15 @@ public class GmailTest extends BaseTest {
         WebElement inputPasswordField =  getDriver().findElement(By.xpath("//input[@type='password']"));
         inputPasswordField.sendKeys("44884488" + Keys.ENTER);
 
+        WebElement buttonEmail = getDriver().findElement(By.xpath("//a[@aria-label='Почта (откроется новая вкладка)']"));
+        buttonEmail.click();
+
+        String titleEmailPage = getDriver().getTitle();
+        String subStringtitleEmailPage = "qae4488@gmail.com";
+        Boolean checkTitleEmailPage = titleEmailPage.contains(subStringtitleEmailPage);
+
+        Assert.assertEquals(checkTitleEmailPage, true);
+
         }
     }
 
